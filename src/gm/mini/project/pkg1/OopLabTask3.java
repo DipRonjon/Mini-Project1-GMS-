@@ -1,26 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gm.mini.project.pkg1;
-
-/**
- *
- * @author thona
- */
-public class GMMiniProject1 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Hello World");
-    }
-    
-}
-package oop.lab.task.pkg3;
 //importing list and array list
 
 import java.util.List;
@@ -89,9 +67,9 @@ class Order {
     }
 
     double calculateTotalAmount() {
-        for (Garment g : garments) {
+        garments.forEach((g) -> {
             totalAmount = totalAmount + g.price;
-        }
+        });
         return totalAmount;
     }
 
@@ -99,12 +77,18 @@ class Order {
         System.out.println("--------------------------");
         System.out.println("Order Details");
         System.out.println("--------------------------");
-        for (Garment g : garments) {
+        garments.stream().map((g) -> {
             System.out.println("Name: " + g.name);
+            return g;
+        }).map((g) -> {
             System.out.println("Price: " + g.price);
+            return g;
+        }).map((g) -> {
             System.out.println("Description: " + g.description);
+            return g;
+        }).forEachOrdered((_item) -> {
             System.out.println("--------------------------");
-        }
+        });
     }
 }
 
