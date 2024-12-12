@@ -118,12 +118,12 @@ class Inventory {
     }
 
     void removeGarment(String id) {
-        garments.remove(id);
+        boolean remove = garments.remove(id);
     }
 
     Garment findGarment(String id) {
         for (Garment g : garments) {
-            if(g.id == id)
+            if(g.id == null ? id == null : g.id.equals(id))
                 return g;
         }
         return null;
@@ -141,5 +141,4 @@ public class OopLabTask3 {
         System.out.println(x);
 
     }
-
 }
